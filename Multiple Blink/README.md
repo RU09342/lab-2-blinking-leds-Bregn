@@ -1,25 +1,13 @@
 # Multiple Blink
-Now that we have blinked at least 1 LED, what about blinking multiple LEDS at the same time? The minimum that you need to develop is blinking at least two LEDs at two different rates. Although I am not going to give you a speed, you should probably pick a rate which is visible to a standard human. I really hope that you take this further and perform some of the extra work for this part of the lab exercise.
+By Bryan Regn
+Created 9/13/17
+Last updated 9/17/17
 
+The multiple blink was similar from processor to processor with slight differences. 
+For all processor the DIR signal needed to be 1 to be an output, also the SEL signal had to be 0.
+Some processors had different SEL signals though. The 5529 had one SEL signal. FR2311, FR5994, and FR6989 used SEL1 and SEL0. The G2553 used SEL and SEL2.
+Also the G2553 had some extra signals such as ADC10AE, CAPD, and INCH that were needed to make P1 I/O. 
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP430F5529
-* MSP430FR2311
-* MSP430FR5994
-* MSP430FR6989
-
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise.
-
-## Extra Work
-When you take a look at the development boards, you are limited to what is built into the platform.
-
-### Even More LEDs
-Since up to this point you should have hopefully noticed that you are simply just controlling each pin on your processor. So... what is keeping you from putting an LED on each pin? Can you actually control the speed of each of these LEDs?
-
-### Patterned Lights
-If you can control a ton of LEDs, what is keeping you from having a little fun? Why not try and make something like a moving face or other moving object in lights. *CAUTION* I would only do this if you have finished the rest of the lab.
-
-### UART Pattern Control
-If you have been using UART, could you set which LEDs are on or off based off some UART command? Would you want to send an Array over UART such as [1 0 1 0] or would you want to send a byte that corresponds to the status? Can you not only say which LEDs are on, but also tell them to blink at a particular rate if they were on (so LED1 Blink every 100ms)?
+For all processor LED 1 was used as P1.0. LED 2 changed from processor to processor. 
+For the 5529 LED was P4.7. For the FR2311 LED 2 was P2.0. For the FR5994 LED 2 was P1.1. For the FR6989 LED 2 was P9.7. For the G2553 LED 2 was P1.6.
+I ran an infinite loop that triggered LED 1 every 20,000 clock cycles and LED 2 every 30,000 clock cycles. 

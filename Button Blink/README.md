@@ -1,21 +1,13 @@
 # Button Blink
-Now that you have looked at blinking the LED from some built in delay, but what if we wanted to control the state of the LED by a button? You may think "Why would I need a Microcontroller to perform the job of a switch?". And that is where you come in. The bare minimum for this part of the lab is to essentially replicate a switch with your development board.
+By Bryan Regn
+Created 9/13/17
+Last updated 9/20/17
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP430F5529
-* MSP430FR2311
-* MSP430FR5994
-* MSP430FR6989
-
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise.
-
-## Extra Work
-What can we do to make this a little bit more worthy of needing a microcontroller.
-
-### Button Based Speed Control
-Much like the UART controlled speed, what if you could cycle between speeds based on a button press? The speed could progress through a cycle of "Off-Slow-Medium-Fast" looping back when you hit the end.
-
-### Color Change
-What if upon a button press, the LED which was blinking changed. Some of the development boards contain two LEDs, so you could swap between a Red and a Green LED.
+The button blink was similar from processor to processor with slight differences. 
+For all processor the DIR signal needed to be 1 to be an output, also the SEL signal had to be 0. This is required to set LED pin.
+The DIR signal needs to be 0 for the button pin to set it as an input, SEL still needs to be 0 to make it a GPIO instead of a peripheral.
+Some processors had different SEL signals though. The 5529 had one SEL signal. FR2311, FR5994, and FR6989 used SEL1 and SEL0. The G2553 used SEL and SEL2.
+Also the G2553 had some extra signals such as ADC10AE, CAPD, and INCH that were needed to make P1 I/O. 
+The pins where buttons are changed from board to board. 
+For the 5529, FR2311, FR6989, and G2553 the button was in P1. For the FR5994 the button was in P5.
+After the it is set up correctly at the trigger of every button presh I used an xor to toggle the LED.
