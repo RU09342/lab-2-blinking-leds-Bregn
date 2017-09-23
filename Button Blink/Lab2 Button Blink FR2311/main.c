@@ -1,6 +1,6 @@
 #include <msp430.h> 
 //By Bryan Regn
-//Last updated 9/18/17
+//Last updated 9/23/17
 
 /**
  * main.c
