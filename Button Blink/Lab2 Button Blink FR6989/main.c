@@ -10,6 +10,8 @@ int main(void)
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
     //needed when using msp430 processors used to reset device to previous state
 
+    PM5CTL0 &= ~LOCKLPM5;
+
     P1SEL0 = 0x00; // sets pin 1 to GPIO
     P1SEL1 = 0x00; // sets pin 1 to GPIO
 
