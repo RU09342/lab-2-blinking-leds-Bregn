@@ -1,6 +1,6 @@
 #include <msp430.h> 
 //By Bryan Regn
-//Last updated 9/23/17
+//Last updated 10/7/17
 
 /**
  * main.c
@@ -19,19 +19,19 @@ int main(void)
     P2SEL0 = 0x00; // sets pin 2 to GPIO
     P2SEL1 = 0x00; // sets pin 2 to GPIO
 
-    P1DIR = 0x01; //sets pin 1 to an output
-    P2DIR = 0x01; //sets pin 2 to an output
+    P1DIR = BIT0; //sets pin 1.0 to an output
+    P2DIR = BIT0; //sets pin 2.0 to an output
 
     P1OUT = 0x00; //initializes LED
     P2OUT = 0x00; //initializes LED
 
     for(;;){ //infinite loop
-        for(i=0; i<50000; i++);{
-            if(i%30000==0){
-                (P2OUT)^= 0x01; // uses xor to toggle P2.0 (Second LED)
+        for(i=0; i<20000; i++);{
+            if(i%1000==0){
+                (P2OUT)^= BIT0; // uses xor to toggle P2.0 (Second LED)
             }
-            if(i%20000==0){
-                (P1OUT)^= 0x01; //uses xor to toggle P1.0 (first LED)
+            if(i%2000==0){
+                (P1OUT)^= BIT0; //uses xor to toggle P1.0 (first LED)
             }
         }
     }

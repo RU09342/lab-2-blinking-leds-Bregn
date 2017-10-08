@@ -1,6 +1,6 @@
 #include <msp430.h> 
 //By Bryan Regn
-//Last updated 9/23/17
+//Last updated 10/7/17
 
 /**
  * main.c
@@ -23,13 +23,9 @@ int main(void)
     P5OUT = BIT6; //Pull up resistor for button
 
     for(;;){ //infinite loop
-        if ((P5IN&&BIT6)==0x00) //if button is pushed
+        if ((P5IN&BIT6)==0x00) //if button is pushed
         {
-            P1OUT = 0x01; //turn on LED
-        }
-        else  //if button 1 is not pushed
-        {
-            P1OUT = 0x00; //turn off LED
+            P1OUT ^= 0x01; //turn on LED
         }
     }
     return 0;
